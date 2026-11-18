@@ -111,109 +111,85 @@ const name = `Mario Kart Arcade GP`;
 const sceneDescs = [
     "Mario Cup",
     new MarioKartArcadeGPSceneDesc(`MR_highway_short_day`, `Mario Highway / Mario Beach (Short - Day)`, [
-        `MRA_s_day.dat`,
         `MR_highway_short_A.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`MR_highway_short_eve`, `Mario Highway / Mario Beach (Short - Evening)`, [
-        `MRA_s_eve.dat`,
         `MR_highway_short_B.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`MR_highway_short_night`, `Mario Highway / Mario Beach (Short - Night)`, [
-        `MRA_s_night.dat`,
         `MR_highway_short_C.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`MR_highway_long_day`, `Mario Highway / Mario Beach (Long - Day)`, [
-        `MRA_l_day.dat`,
         `MR_highway_long_A.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`MR_highway_long_eve`, `Mario Highway / Mario Beach (Long - Evening)`, [
-        `MRA_l_eve.dat`,
         `MR_highway_long_B.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`MR_highway_long_night`, `Mario Highway / Mario Beach (Long - Night)`, [
-        `MRA_l_night.dat`,
         `MR_highway_long_C.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`MH_challenge`, `Mario Cup - Challenge`, [
-        `MRA_s_day.dat`,
         `MH_challenge_map.dat`,
         `MH_challenge_obj.dat`,
     ]),
 
     "DK Cup",
     new MarioKartArcadeGPSceneDesc(`DK_jungle_short_day`, `DK Jungle / Bananan Labyrinth (Short - Day)`, [
-        `DKA_s_day.dat`,
         `DK_jungle_short_a.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`DK_jungle_short_eve`, `DK Jungle / Bananan Labyrinth (Short - Evening)`, [
-        `DKA_s_eve.dat`,
         `DK_jungle_short_b.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`DK_jungle_short_night`, `DK Jungle / Bananan Labyrinth (Short - Night)`, [
-        `DKA_s_night.dat`,
         `DK_jungle_short_c.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`DK_jungle_long_day`, `DK Jungle / Bananan Labyrinth (Long - Day)`, [
-        `DKA_l_day.dat`,
         `DK_jungle_long_a.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`DK_jungle_long_eve`, `DK Jungle / Bananan Labyrinth (Long - Evening)`, [
-        `DKA_l_eve.dat`,
         `DK_jungle_long_b.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`DK_jungle_long_night`, `DK Jungle / Bananan Labyrinth (Long - Night)`, [
-        `DKA_l_night.dat`,
         `DK_jungle_long_c.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`DK_challenge`, `DK Cup - Challenge`, [
-        `DKA_s_day.dat`,
         `DK_jungle_challenge.dat`,
     ]),
 
     "Wario Cup",
     new MarioKartArcadeGPSceneDesc(`WC_dcity_short_a`, `Diamond City / Snow Panic (Short - Variant A)`, [
-        `WA_AS.dat`,
         `WC_dcity_short_A.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`WC_dcity_short_b`, `Diamond City / Snow Panic (Short - Variant B)`, [
-        `WA_BS.dat`,
         `WC_dcity_short_B.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`WC_dcity_short_c`, `Diamond City / Snow Panic (Short - Variant C)`, [
-        `WA_CS.dat`,
         `WC_dcity_short_C.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`WC_dcity_long_a`, `Diamond City / Snow Panic (Long - Variant A)`, [
-        `WA_AS.dat`,
         `WC_dcity_long_A.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`WC_dcity_long_b`, `Diamond City / Snow Panic (Long - Variant B)`, [
-        `WA_BS.dat`,
         `WC_dcity_long_B.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`WC_dcity_long_c`, `Diamond City / Snow Panic (Long - Variant C)`, [
-        `WA_CS.dat`,
         `WC_dcity_long_C.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`WC_challenge`, `Wario Cup - Challenge`, [
-        `WA_AS.dat`,
         `WC_challenge_map.dat`,
         `WC_dcity_challenge.dat`,
     ]),
 
     "Pac-Man Cup",
     new MarioKartArcadeGPSceneDesc(`PC_land_short`, `Pac Mountain / Pac Labyrinth (Short)`, [
-        `PCL_s_day.dat`,
         `PC_land_short_a.dat`,
         `PCA_anim_sa.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`PC_land_long`, `Pac Mountain / Pac Labyrinth (Long)`, [
-        `PCL_l_day.dat`,
         `PC_land_long_a.dat`,
         `PCA_anim_la.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`PC_challenge`, `Pac-Man Cup - Challenge`, [
-        `PCL_s_day.dat`,
         `PL_challenge_map.dat`,
         `PL_challenge_obj.dat`,
         `PC_land_challenge.dat`,
@@ -222,21 +198,18 @@ const sceneDescs = [
 
     "Bowser Cup",
     new MarioKartArcadeGPSceneDesc(`KP_castle_short`, `Bowser's Castle / Castle Wall (Course A)`, [
-        `KPC_s_day.dat`,
         `KP_sky_kasan.dat`,
         `KP_castle_ground_A.dat`,
         `KP_jkabe.dat`,
         `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_castle_long`, `Bowser's Castle / Castle Wall (Course B)`, [
-        `KPC_l_day.dat`,
         `KP_sky_kasan.dat`,
         `KP_castle_ground_B.dat`,
         `KP_jkabe.dat`,
         `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_challenge`, `Bowser Cup - Challenge`, [
-        `KPC_s_day.dat`,
         `KP_castle_challenge.dat`,
         `KP_challenge_ashi.dat`,
     ]),
