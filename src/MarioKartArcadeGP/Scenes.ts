@@ -198,13 +198,11 @@ const sceneDescs = [
 
     "Bowser Cup",
     new MarioKartArcadeGPSceneDesc(`KP_castle_short`, `Bowser's Castle / Castle Wall (Course A)`, [
-        `KP_sky_kasan.dat`,
         `KP_castle_ground_A.dat`,
         `KP_jkabe.dat`,
         `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_castle_long`, `Bowser's Castle / Castle Wall (Course B)`, [
-        `KP_sky_kasan.dat`,
         `KP_castle_ground_B.dat`,
         `KP_jkabe.dat`,
         `KP_sekizou.dat`,
