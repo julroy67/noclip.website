@@ -135,9 +135,14 @@ class MarioKartArcadeGPSceneDesc implements SceneDesc {
             allReverseJObjs.push(...info.reverseJObjs);
 
             if (info.roots.length > 0) {
+                const defaultVisible = file !== `KP_sekizou.dat`;
+                for (const r of info.roots) {
+                    if (r.allJObjs.length > 0)
+                        r.allJObjs[0].visible = defaultVisible;
+                }
                 const layer: UI.Layer = {
                     name: file,
-                    visible: true,
+                    visible: defaultVisible,
                     setVisible(v: boolean) {
                         this.visible = v;
                         for (const r of info.roots) {
@@ -272,10 +277,12 @@ const sceneDescs = [
     new MarioKartArcadeGPSceneDesc(`KP_castle_short`, `Bowser's Castle / Castle Wall (Course A)`, [
         `KP_castle_ground_A.dat`,
         `KP_jkabe.dat`,
+        `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_castle_long`, `Bowser's Castle / Castle Wall (Course B)`, [
         `KP_castle_ground_B.dat`,
         `KP_jkabe.dat`,
+        `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_challenge`, `Bowser Cup - Challenge`, [
         `KP_castle_challenge.dat`,
