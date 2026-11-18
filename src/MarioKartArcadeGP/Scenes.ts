@@ -292,46 +292,38 @@ const sceneDescs = [
     "Rainbow Cup",
     new MarioKartArcadeGPSceneDesc(`RB_road_short_a`, `Rainbow Coaster / Downhill (Short - Variant A)`, [
         `RB_road_short_a.dat`,
-        `RBA_anim_a.dat`,
         `RBA_anim_as.dat`,
         `RBA_s_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_short_b`, `Rainbow Coaster / Downhill (Short - Variant B)`, [
         `RB_road_short_b.dat`,
-        `RBA_anim_a.dat`,
         `RBA_anim_aurora.dat`,
         `RBA_s_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_short_c`, `Rainbow Coaster / Downhill (Short - Variant C)`, [
         `RB_road_short_c.dat`,
-        `RBA_anim_a.dat`,
         `RBA_s_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_short_d`, `Rainbow Coaster / Downhill (Short - Variant D)`, [
         `RB_road_short_d.dat`,
-        `RBA_anim_a.dat`,
         `RBA_s_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_long_a`, `Rainbow Coaster / Downhill (Long - Variant A)`, [
         `RB_road_long_a.dat`,
-        `RBA_anim_a.dat`,
         `RBA_anim_al.dat`,
         `RBA_l_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_long_b`, `Rainbow Coaster / Downhill (Long - Variant B)`, [
         `RB_road_long_b.dat`,
-        `RBA_anim_a.dat`,
         `RBA_anim_auroralong.dat`,
         `RBA_l_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_long_c`, `Rainbow Coaster / Downhill (Long - Variant C)`, [
         `RB_road_long_c.dat`,
-        `RBA_anim_a.dat`,
         `RBA_l_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RB_road_long_d`, `Rainbow Coaster / Downhill (Long - Variant D)`, [
         `RB_road_long_d.dat`,
-        `RBA_anim_a.dat`,
         `RBA_l_warp.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`RL_challenge`, `Rainbow Cup - Challenge`, [
