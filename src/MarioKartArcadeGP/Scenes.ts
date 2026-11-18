@@ -16,21 +16,39 @@ import {
     HSD_ShapeAnimJointRoot,
 } from "../SYSDOLPHIN/SYSDOLPHIN.js";
 import { HSD_JObjRoot_Instance } from "../SYSDOLPHIN/SYSDOLPHIN_Render.js";
+import * as UI from "../ui.js";
 import { assertExists } from "../util.js";
 import { SceneGfx } from "../viewer.js";
 
+type HSD_JObj_Instance = HSD_JObjRoot_Instance[`allJObjs`][number];
+
 const pathBase = `MarioKartArcadeGP`;
 
-function loadSceneDataArchive(renderer: MeleeRenderer, arc: HSD_Archive): void {
+class MarioKartArcadeGPRenderer extends MeleeRenderer {
+    public layers: UI.Layer[] = [];
+
+    public createPanels(): UI.Panel[] {
+        return this.layers.length > 0 ? [new UI.LayerPanel(this.layers)] : [];
+    }
+}
+
+interface LoadedArchiveInfo {
+    roots: HSD_JObjRoot_Instance[];
+    normalJObjs: HSD_JObj_Instance[];
+    reverseJObjs: HSD_JObj_Instance[];
+}
+
+function loadSceneDataArchive(renderer: MeleeRenderer, arc: HSD_Archive): LoadedArchiveInfo {
+    const info: LoadedArchiveInfo = { roots: [], normalJObjs: [], reverseJObjs: [] };
     const ctx = new HSD_LoadContext(arc);
     const sceneDataSlice = HSD_Archive_FindPublic(arc, `scene_data`);
     if (sceneDataSlice === null)
-        return;
+        return info;
 
     const sceneData = sceneDataSlice.createDataView();
     const jobjDescsOffs = sceneData.getUint32(0x00);
     if (jobjDescsOffs === 0)
-        return;
+        return info;
 
     const jobjDescs = HSD_LoadContext__ResolvePtr(ctx, jobjDescsOffs).createDataView();
     for (let i = 0; ; i += 4) {
@@ -78,15 +96,24 @@ function loadSceneDataArchive(renderer: MeleeRenderer, arc: HSD_Archive): void {
             rootJointInstance.addAnimAll(jointAnimation, materialAnimation, shapeAnimation);
 
         for (const sym of arc.publics) {
-            if (sym.name.includes(`occlusion`) || sym.name.includes(`atari`) || sym.name.includes(`hani`) || sym.name.includes(`reverse`)) {
-                const jobj = rootJointInstance.findJObjByJointReferenceID(sym.offset);
-                if (jobj !== undefined)
-                    jobj.setVisibleAll(false);
+            const jobj = rootJointInstance.findJObjByJointReferenceID(sym.offset);
+            if (jobj === undefined)
+                continue;
+
+            if (sym.name.includes(`occlusion`) || sym.name.includes(`atari`) || sym.name.includes(`hani`)) {
+                jobj.setVisibleAll(false);
+            } else if (sym.name.includes(`reverse`)) {
+                jobj.visible = false;
+                info.reverseJObjs.push(jobj);
+            } else if (sym.name.includes(`normal`)) {
+                info.normalJObjs.push(jobj);
             }
         }
 
         renderer.jobjRoots.push(rootJointInstance);
+        info.roots.push(rootJointInstance);
     }
+    return info;
 }
 
 class MarioKartArcadeGPSceneDesc implements SceneDesc {
@@ -94,12 +121,57 @@ class MarioKartArcadeGPSceneDesc implements SceneDesc {
 
     public async createScene(device: GfxDevice, context: SceneContext): Promise<SceneGfx> {
         const dataFetcher = context.dataFetcher;
-        const renderer = new MeleeRenderer(device);
+        const renderer = new MarioKartArcadeGPRenderer(device);
 
         const buffers = await Promise.all(this.files.map((file) => dataFetcher.fetchData(`${pathBase}/${file}`)));
-        for (const buffer of buffers) {
-            const arc = HSD_ArchiveParse(buffer);
-            loadSceneDataArchive(renderer, arc);
+        const allNormalJObjs: HSD_JObj_Instance[] = [];
+        const allReverseJObjs: HSD_JObj_Instance[] = [];
+
+        for (let i = 0; i < buffers.length; i++) {
+            const file = this.files[i];
+            const arc = HSD_ArchiveParse(buffers[i]);
+            const info = loadSceneDataArchive(renderer, arc);
+            allNormalJObjs.push(...info.normalJObjs);
+            allReverseJObjs.push(...info.reverseJObjs);
+
+            if (info.roots.length > 0) {
+                const layer: UI.Layer = {
+                    name: file,
+                    visible: true,
+                    setVisible(v: boolean) {
+                        this.visible = v;
+                        for (const r of info.roots) {
+                            if (r.allJObjs.length > 0)
+                                r.allJObjs[0].visible = v;
+                        }
+                    },
+                };
+                renderer.layers.push(layer);
+            }
+        }
+
+        if (allNormalJObjs.length > 0) {
+            renderer.layers.push({
+                name: `Normal Route`,
+                visible: true,
+                setVisible(v: boolean) {
+                    this.visible = v;
+                    for (const j of allNormalJObjs)
+                        j.visible = v;
+                },
+            });
+        }
+
+        if (allReverseJObjs.length > 0) {
+            renderer.layers.push({
+                name: `Reverse Route`,
+                visible: false,
+                setVisible(v: boolean) {
+                    this.visible = v;
+                    for (const j of allReverseJObjs)
+                        j.visible = v;
+                },
+            });
         }
 
         return renderer;
