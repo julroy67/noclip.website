@@ -101,18 +101,209 @@ class MarioKartArcadeGPSceneDesc implements SceneDesc {
 const id = `MarioKartArcadeGP`;
 const name = `Mario Kart Arcade GP`;
 const sceneDescs = [
-    new MarioKartArcadeGPSceneDesc(`MR_highway_short_day`, `Mario Highway (Short - Day)`, [
+    "Mario Cup",
+    new MarioKartArcadeGPSceneDesc(`MR_highway_short_day`, `Mario Highway / Mario Beach (Short - Day)`, [
         `MRA_s_day.dat`,
         `MR_highway_short_A.dat`,
     ]),
-    new MarioKartArcadeGPSceneDesc(`MR_highway_short_eve`, `Mario Highway (Short - Evening)`, [
+    new MarioKartArcadeGPSceneDesc(`MR_highway_short_eve`, `Mario Highway / Mario Beach (Short - Evening)`, [
         `MRA_s_eve.dat`,
         `MR_highway_short_B.dat`,
     ]),
-    new MarioKartArcadeGPSceneDesc(`MR_highway_short_night`, `Mario Highway (Short - Night)`, [
+    new MarioKartArcadeGPSceneDesc(`MR_highway_short_night`, `Mario Highway / Mario Beach (Short - Night)`, [
         `MRA_s_night.dat`,
         `MR_highway_short_C.dat`,
     ]),
+    new MarioKartArcadeGPSceneDesc(`MR_highway_long_day`, `Mario Highway / Mario Beach (Long - Day)`, [
+        `MRA_l_day.dat`,
+        `MR_highway_long_A.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`MR_highway_long_eve`, `Mario Highway / Mario Beach (Long - Evening)`, [
+        `MRA_l_eve.dat`,
+        `MR_highway_long_B.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`MR_highway_long_night`, `Mario Highway / Mario Beach (Long - Night)`, [
+        `MRA_l_night.dat`,
+        `MR_highway_long_C.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`MH_challenge`, `Mario Cup - Challenge`, [
+        `MRA_s_day.dat`,
+        `MH_challenge_map.dat`,
+        `MH_challenge_obj.dat`,
+    ]),
+
+    "DK Cup",
+    new MarioKartArcadeGPSceneDesc(`DK_jungle_short_day`, `DK Jungle / Bananan Labyrinth (Short - Day)`, [
+        `DKA_s_day.dat`,
+        `DK_jungle_short_a.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`DK_jungle_short_eve`, `DK Jungle / Bananan Labyrinth (Short - Evening)`, [
+        `DKA_s_eve.dat`,
+        `DK_jungle_short_b.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`DK_jungle_short_night`, `DK Jungle / Bananan Labyrinth (Short - Night)`, [
+        `DKA_s_night.dat`,
+        `DK_jungle_short_c.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`DK_jungle_long_day`, `DK Jungle / Bananan Labyrinth (Long - Day)`, [
+        `DKA_l_day.dat`,
+        `DK_jungle_long_a.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`DK_jungle_long_eve`, `DK Jungle / Bananan Labyrinth (Long - Evening)`, [
+        `DKA_l_eve.dat`,
+        `DK_jungle_long_b.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`DK_jungle_long_night`, `DK Jungle / Bananan Labyrinth (Long - Night)`, [
+        `DKA_l_night.dat`,
+        `DK_jungle_long_c.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`DK_challenge`, `DK Cup - Challenge`, [
+        `DKA_s_day.dat`,
+        `DK_jungle_challenge.dat`,
+    ]),
+
+    "Wario Cup",
+    new MarioKartArcadeGPSceneDesc(`WC_dcity_short_a`, `Diamond City / Snow Panic (Short - Variant A)`, [
+        `WA_AS.dat`,
+        `WC_dcity_short_A.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`WC_dcity_short_b`, `Diamond City / Snow Panic (Short - Variant B)`, [
+        `WA_BS.dat`,
+        `WC_dcity_short_B.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`WC_dcity_short_c`, `Diamond City / Snow Panic (Short - Variant C)`, [
+        `WA_CS.dat`,
+        `WC_dcity_short_C.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`WC_dcity_long_a`, `Diamond City / Snow Panic (Long - Variant A)`, [
+        `WA_AS.dat`,
+        `WC_dcity_long_A.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`WC_dcity_long_b`, `Diamond City / Snow Panic (Long - Variant B)`, [
+        `WA_BS.dat`,
+        `WC_dcity_long_B.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`WC_dcity_long_c`, `Diamond City / Snow Panic (Long - Variant C)`, [
+        `WA_CS.dat`,
+        `WC_dcity_long_C.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`WC_challenge`, `Wario Cup - Challenge`, [
+        `WA_AS.dat`,
+        `WC_challenge_map.dat`,
+        `WC_dcity_challenge.dat`,
+    ]),
+
+    "Pac-Man Cup",
+    new MarioKartArcadeGPSceneDesc(`PC_land_short`, `Pac Mountain / Pac Labyrinth (Short)`, [
+        `PCL_s_day.dat`,
+        `PC_land_short_a.dat`,
+        `PCA_anim_sa.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`PC_land_long`, `Pac Mountain / Pac Labyrinth (Long)`, [
+        `PCL_l_day.dat`,
+        `PC_land_long_a.dat`,
+        `PCA_anim_la.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`PC_challenge`, `Pac-Man Cup - Challenge`, [
+        `PCL_s_day.dat`,
+        `PL_challenge_map.dat`,
+        `PL_challenge_obj.dat`,
+        `PC_land_challenge.dat`,
+        `PCA_challenge.dat`,
+    ]),
+
+    "Bowser Cup",
+    new MarioKartArcadeGPSceneDesc(`KP_castle_short`, `Bowser's Castle / Castle Wall (Course A)`, [
+        `KPC_s_day.dat`,
+        `KP_sky_kasan.dat`,
+        `KP_castle_ground_A.dat`,
+        `KP_jkabe.dat`,
+        `KP_sekizou.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`KP_castle_long`, `Bowser's Castle / Castle Wall (Course B)`, [
+        `KPC_l_day.dat`,
+        `KP_sky_kasan.dat`,
+        `KP_castle_ground_B.dat`,
+        `KP_jkabe.dat`,
+        `KP_sekizou.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`KP_challenge`, `Bowser Cup - Challenge`, [
+        `KPC_s_day.dat`,
+        `KP_castle_challenge.dat`,
+        `KP_challenge_ashi.dat`,
+    ]),
+
+    "Rainbow Cup",
+    new MarioKartArcadeGPSceneDesc(`RB_road_short_a`, `Rainbow Coaster / Downhill (Short - Variant A)`, [
+        `RB_road_ground.dat`,
+        `RB_road_short_a.dat`,
+        `rb_light_A.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_as.dat`,
+        `RBA_anim_aurora.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_short_b`, `Rainbow Coaster / Downhill (Short - Variant B)`, [
+        `RB_road_ground.dat`,
+        `RB_road_short_b.dat`,
+        `rb_light_B.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_as.dat`,
+        `RBA_anim_aurora.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_short_c`, `Rainbow Coaster / Downhill (Short - Variant C)`, [
+        `RB_road_ground.dat`,
+        `RB_road_short_c.dat`,
+        `rb_light_C.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_as.dat`,
+        `RBA_anim_aurora.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_short_d`, `Rainbow Coaster / Downhill (Short - Variant D)`, [
+        `RB_road_ground.dat`,
+        `RB_road_short_d.dat`,
+        `rb_light_D.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_as.dat`,
+        `RBA_anim_aurora.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_long_a`, `Rainbow Coaster / Downhill (Long - Variant A)`, [
+        `RB_road_ground.dat`,
+        `RB_road_long_a.dat`,
+        `rb_light_A.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_al.dat`,
+        `RBA_anim_auroralong.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_long_b`, `Rainbow Coaster / Downhill (Long - Variant B)`, [
+        `RB_road_ground.dat`,
+        `RB_road_long_b.dat`,
+        `rb_light_B.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_al.dat`,
+        `RBA_anim_auroralong.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_long_c`, `Rainbow Coaster / Downhill (Long - Variant C)`, [
+        `RB_road_ground.dat`,
+        `RB_road_long_c.dat`,
+        `rb_light_C.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_al.dat`,
+        `RBA_anim_auroralong.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RB_road_long_d`, `Rainbow Coaster / Downhill (Long - Variant D)`, [
+        `RB_road_ground.dat`,
+        `RB_road_long_d.dat`,
+        `rb_light_D.dat`,
+        `RBA_anim_a.dat`,
+        `RBA_anim_al.dat`,
+        `RBA_anim_auroralong.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`RL_challenge`, `Rainbow Cup - Challenge`, [
+        `RB_road_ground.dat`,
+        `RL_challenge_map.dat`,
+    ]),
+
+    "Development",
     new MarioKartArcadeGPSceneDesc(`test_course`, `Test Course`, [
         `test_course_road.dat`,
         `test_course_ground.dat`,
