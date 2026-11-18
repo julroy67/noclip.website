@@ -134,7 +134,7 @@ class MarioKartArcadeGPSceneDesc implements SceneDesc {
             allNormalJObjs.push(...info.normalJObjs);
             allReverseJObjs.push(...info.reverseJObjs);
 
-            if (info.roots.length > 0) {
+            if (i > 0 && info.roots.length > 0) {
                 const defaultVisible = file !== `KP_sekizou.dat`;
                 for (const r of info.roots) {
                     if (r.allJObjs.length > 0)
