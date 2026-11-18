@@ -6,6 +6,7 @@ import { Viewer, SceneGfx, InitErrorCode, makeErrorUI, resizeCanvas, ViewerUpdat
 import * as Scenes_Example from './Example/Scenes.js';
 import * as Scenes_BanjoKazooie from './BanjoKazooie/scenes.js';
 import * as Scenes_ZeldaTwilightPrincess from './ZeldaTwilightPrincess/Main.js';
+import * as Scenes_MarioKartArcadeGP from './MarioKartArcadeGP/Scenes.js';
 import * as Scenes_MarioKartDoubleDash from './j3d/mkdd_scenes.js';
 import * as Scenes_ZeldaWindWaker from './ZeldaWindWaker/Main.js';
 import * as Scenes_SuperMarioSunshine from './j3d/sms_scenes.js';
@@ -163,6 +164,7 @@ const sceneGroups: (string | SceneGroup)[] = [
     "GameCube",
     Scenes_KirbyAirRide.sceneGroup,
     Scenes_LuigisMansion.sceneGroup,
+    Scenes_MarioKartArcadeGP.sceneGroup,
     Scenes_MarioKartDoubleDash.sceneGroup,
     Scenes_MetroidPrime.sceneGroupMP1,
     Scenes_MetroidPrime.sceneGroupMP2,
