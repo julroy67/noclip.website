@@ -78,7 +78,7 @@ function loadSceneDataArchive(renderer: MeleeRenderer, arc: HSD_Archive): void {
             rootJointInstance.addAnimAll(jointAnimation, materialAnimation, shapeAnimation);
 
         for (const sym of arc.publics) {
-            if (sym.name.includes(`occlusion`)) {
+            if (sym.name.includes(`occlusion`) || sym.name.includes(`atari`) || sym.name.includes(`hani`)) {
                 const jobj = rootJointInstance.findJObjByJointReferenceID(sym.offset);
                 if (jobj !== undefined)
                     jobj.setVisibleAll(false);
