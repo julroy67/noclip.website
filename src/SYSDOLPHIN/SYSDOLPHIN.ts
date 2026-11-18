@@ -848,7 +848,7 @@ export enum HSD_JObjFlags {
     ROOT_TEXEDGE        = 1 << 30,
 }
 
-function HSD_JObjLoadJointInternal(jobjs: HSD_JObj[], ctx: HSD_LoadContext, buffer: ArrayBufferSlice): void {
+function HSD_JObjLoadJointInternal(jobjs: HSD_JObj[], ctx: HSD_LoadContext, buffer: ArrayBufferSlice, isInstanceTarget: boolean = false): void {
     const view = buffer.createDataView();
     // const classNameOffs = view.getUint32(0x00);
     const flags: HSD_JObjFlags = view.getUint32(0x04);
@@ -863,17 +863,17 @@ function HSD_JObjLoadJointInternal(jobjs: HSD_JObj[], ctx: HSD_LoadContext, buff
     const rotationX = view.getFloat32(0x14);
     const rotationY = view.getFloat32(0x18);
     const rotationZ = view.getFloat32(0x1C);
-    const rotation = vec3.fromValues(rotationX, rotationY, rotationZ);
+    const rotation = isInstanceTarget ? vec3.create() : vec3.fromValues(rotationX, rotationY, rotationZ);
 
     const scaleX = view.getFloat32(0x20);
     const scaleY = view.getFloat32(0x24);
     const scaleZ = view.getFloat32(0x28);
-    const scale = vec3.fromValues(scaleX, scaleY, scaleZ);
+    const scale = isInstanceTarget ? vec3.fromValues(1, 1, 1) : vec3.fromValues(scaleX, scaleY, scaleZ);
 
     const translationX = view.getFloat32(0x2C);
     const translationY = view.getFloat32(0x30);
     const translationZ = view.getFloat32(0x34);
-    const translation = vec3.fromValues(translationX, translationY, translationZ);
+    const translation = isInstanceTarget ? vec3.create() : vec3.fromValues(translationX, translationY, translationZ);
 
     const inverseBindPoseOffs = view.getUint32(0x38);
     const inverseBindPose = mat4.create();
@@ -907,7 +907,7 @@ function HSD_JObjLoadJointInternal(jobjs: HSD_JObj[], ctx: HSD_LoadContext, buff
 
     const children: HSD_JObj[] = [];
     if (firstChildOffs !== 0) {
-        HSD_JObjLoadJointInternal(children, ctx, HSD_LoadContext__ResolvePtr(ctx, firstChildOffs));
+        HSD_JObjLoadJointInternal(children, ctx, HSD_LoadContext__ResolvePtr(ctx, firstChildOffs), !!(flags & HSD_JObjFlags.INSTANCE));
     }
 
     const jointReferenceID = HSD_Archive__GetStructOffset(ctx.archive, buffer);
@@ -925,7 +925,7 @@ function HSD_JObjLoadJointInternal(jobjs: HSD_JObj[], ctx: HSD_LoadContext, buff
         jobjs.push({ ... base, kind: 'DObj', dobj });
     }
 
-    if (nextSiblingOffs !== 0)
+    if (!isInstanceTarget && nextSiblingOffs !== 0)
         HSD_JObjLoadJointInternal(jobjs, ctx, HSD_LoadContext__ResolvePtr(ctx, nextSiblingOffs));
 }
 
