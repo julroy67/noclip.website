@@ -757,24 +757,26 @@ export interface HSD_DObj {
 }
 
 function HSD_DObjLoadDesc(dobjs: HSD_DObj[], ctx: HSD_LoadContext, buffer: ArrayBufferSlice): void {
-    const view = buffer.createDataView();
-    // const classNameOffs = view.getUint32(0x00);
-    const nextSiblingOffs = view.getUint32(0x04);
+    let curr: ArrayBufferSlice | null = buffer;
+    while (curr !== null) {
+        const view = curr.createDataView();
+        // const classNameOffs = view.getUint32(0x00);
+        const nextSiblingOffs = view.getUint32(0x04);
 
-    const mobjOffs = view.getUint32(0x08);
-    let mobj: HSD_MObj | null = null;
-    if (mobjOffs !== 0)
-        mobj = HSD_MObjLoadDesc(ctx, HSD_LoadContext__ResolvePtr(ctx, mobjOffs));
+        const mobjOffs = view.getUint32(0x08);
+        let mobj: HSD_MObj | null = null;
+        if (mobjOffs !== 0)
+            mobj = HSD_MObjLoadDesc(ctx, HSD_LoadContext__ResolvePtr(ctx, mobjOffs));
 
-    const pobjOffs = view.getUint32(0x0C);
-    const pobj: HSD_PObj[] = [];
-    if (pobjOffs !== 0)
-        HSD_PObjLoadDesc(pobj, ctx, HSD_LoadContext__ResolvePtr(ctx, pobjOffs));
+        const pobjOffs = view.getUint32(0x0C);
+        const pobj: HSD_PObj[] = [];
+        if (pobjOffs !== 0)
+            HSD_PObjLoadDesc(pobj, ctx, HSD_LoadContext__ResolvePtr(ctx, pobjOffs));
 
-    dobjs.push({ mobj, pobj });
+        dobjs.push({ mobj, pobj });
 
-    if (nextSiblingOffs !== 0)
-        HSD_DObjLoadDesc(dobjs, ctx, HSD_LoadContext__ResolvePtr(ctx, nextSiblingOffs));
+        curr = nextSiblingOffs !== 0 ? HSD_LoadContext__ResolvePtr(ctx, nextSiblingOffs) : null;
+    }
 }
 //#endregion
 

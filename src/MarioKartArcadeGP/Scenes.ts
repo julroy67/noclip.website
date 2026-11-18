@@ -101,10 +101,16 @@ class MarioKartArcadeGPSceneDesc implements SceneDesc {
 const id = `MarioKartArcadeGP`;
 const name = `Mario Kart Arcade GP`;
 const sceneDescs = [
-    new MarioKartArcadeGPSceneDesc(`MR_highway_short`, `Mario Highway (Short)`, [
+    new MarioKartArcadeGPSceneDesc(`MR_highway_short_day`, `Mario Highway (Short - Day)`, [
         `MRA_s_day.dat`,
         `MR_highway_short_A.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`MR_highway_short_eve`, `Mario Highway (Short - Evening)`, [
+        `MRA_s_eve.dat`,
         `MR_highway_short_B.dat`,
+    ]),
+    new MarioKartArcadeGPSceneDesc(`MR_highway_short_night`, `Mario Highway (Short - Night)`, [
+        `MRA_s_night.dat`,
         `MR_highway_short_C.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`test_course`, `Test Course`, [
@@ -114,7 +120,6 @@ const sceneDescs = [
         `test_course_f_ship.dat`,
         `test_course_coconut.dat`,
         `test_course_bm.dat`,
-        `test_course_obj.dat`,
     ]),
 ];
 
