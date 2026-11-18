@@ -78,7 +78,7 @@ function loadSceneDataArchive(renderer: MeleeRenderer, arc: HSD_Archive): void {
             rootJointInstance.addAnimAll(jointAnimation, materialAnimation, shapeAnimation);
 
         for (const sym of arc.publics) {
-            if (sym.name.includes(`occlusion`) || sym.name.includes(`atari`) || sym.name.includes(`hani`)) {
+            if (sym.name.includes(`occlusion`) || sym.name.includes(`atari`) || sym.name.includes(`hani`) || sym.name.includes(`reverse`)) {
                 const jobj = rootJointInstance.findJObjByJointReferenceID(sym.offset);
                 if (jobj !== undefined)
                     jobj.setVisibleAll(false);
@@ -200,12 +200,10 @@ const sceneDescs = [
     new MarioKartArcadeGPSceneDesc(`KP_castle_short`, `Bowser's Castle / Castle Wall (Course A)`, [
         `KP_castle_ground_A.dat`,
         `KP_jkabe.dat`,
-        `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_castle_long`, `Bowser's Castle / Castle Wall (Course B)`, [
         `KP_castle_ground_B.dat`,
         `KP_jkabe.dat`,
-        `KP_sekizou.dat`,
     ]),
     new MarioKartArcadeGPSceneDesc(`KP_challenge`, `Bowser Cup - Challenge`, [
         `KP_castle_challenge.dat`,
